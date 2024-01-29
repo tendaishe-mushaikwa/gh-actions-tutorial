@@ -41,7 +41,7 @@ jobs:
         env:
           HOST_NAME: Earthly
       - name: Print homepage URL
-        run: echo "Host https://$HOST_NAME.dev
+        run: echo "Host https://$HOST_NAME.dev"
       - name: Detect package manager
         id: detect-package-manager
         run: |
