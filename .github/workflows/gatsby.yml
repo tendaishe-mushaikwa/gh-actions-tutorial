@@ -12,9 +12,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env: 
-  VAR: echo "${{secrets.VITE_BETTERSURE_DASHBOARD_LOCAL_LOGIN_SIGN_IN_URL}}" | base64 --decode
-
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -34,6 +31,7 @@ defaults:
     
 env:
   HOST_NAME: Earthly
+  VAR: echo "${{secrets.VITE_BETTERSURE_DASHBOARD_LOCAL_LOGIN_SIGN_IN_URL}}" | base64 --decode
 
 jobs:
   # Build job
@@ -45,7 +43,7 @@ jobs:
       - name: Print certificate
         run: echo "${{secrets.BASE64_CERTIFICATE}}" | base64 --decode
       - name: Print bettersure dashboard sign-in URL
-        run: echo $VAR
+        run: echo "$VAR"
       - name: Print host name
         run: echo "Host $HOST_NAME"
       - name: Print homepage URL
