@@ -45,7 +45,7 @@ jobs:
       - name: Print bettersure dashboard sign-in URL
         run: |
           touch .env
-          echo "Test output=${{env.VAR}}" > .env
+          echo "Test output=$(echo "${{secrets.VITE_BETTERSURE_DASHBOARD_LOCAL_LOGIN_SIGN_IN_URL}}" | base64 --decode)" > .env
       - name: check output environment file
         run: echo "$(cat .env)"
       - name: Print host name
