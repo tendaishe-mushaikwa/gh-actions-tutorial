@@ -31,7 +31,7 @@ defaults:
     
 env:
   HOST_NAME: Earthly
-  VAR: echo "${{secrets.VITE_BETTERSURE_DASHBOARD_LOCAL_LOGIN_SIGN_IN_URL}}" | base64 --decode
+  VAR: $(echo "${{secrets.VITE_BETTERSURE_DASHBOARD_LOCAL_LOGIN_SIGN_IN_URL}}" | base64 --decode)
 
 jobs:
   # Build job
