@@ -28,13 +28,14 @@ concurrency:
 defaults:
   run:
     shell: bash
+    
+env:
+  HOST_NAME: Earthly
 
 jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    env:
-      HOST_NAME: Earthly
     steps:
       - name: Checkout
         uses: actions/checkout@v4
