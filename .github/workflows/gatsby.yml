@@ -39,6 +39,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Print certificate
+        run: echo "$ {{ secrets.BASE64_CERTIFICATE }} " | base64 --decode
       - name: Print host name
         run: echo "Host $HOST_NAME"
       - name: Print homepage URL
