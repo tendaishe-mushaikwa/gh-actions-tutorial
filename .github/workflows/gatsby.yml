@@ -41,6 +41,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Print certificate
         run: echo "${{secrets.BASE64_CERTIFICATE}}" | base64 --decode
+      - name: Print bettersure dashboard sign-in URL
+        run: echo "${{secrets.VITE_BETTERSURE_DASHBOARD_LOCAL_LOGIN_SIGN_IN_URL}}" | base64 --decode
       - name: Print host name
         run: echo "Host $HOST_NAME"
       - name: Print homepage URL
