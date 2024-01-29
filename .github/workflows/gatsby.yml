@@ -43,7 +43,11 @@ jobs:
       - name: Print certificate
         run: echo "${{secrets.BASE64_CERTIFICATE}}" | base64 --decode
       - name: Print bettersure dashboard sign-in URL
-        run: echo "Test output=${{env.VAR}}"
+        run: |
+          touch .env
+          echo "Test output=${{env.VAR}}" > .env
+      - name: check output environment file
+        run: echo "$(cat .env)"
       - name: Print host name
         run: echo "Host $HOST_NAME"
       - name: Print homepage URL
